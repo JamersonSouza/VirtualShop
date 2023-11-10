@@ -6,11 +6,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductHeaderComponent } from './pages/UIComponents/product-header/product-header.component';
 import { FiltersComponent } from './pages/UIComponents/filters/filters.component';
 import { ProductBoxComponent } from './pages/UIComponents/product-box/product-box.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, HomeComponent, ProductHeaderComponent, FiltersComponent, ProductBoxComponent],
+  declarations: [HeaderComponent, HomeComponent, ProductHeaderComponent, FiltersComponent, ProductBoxComponent, CheckoutComponent],
   imports: [
     CommonModule,
     MaterialModulesModule
