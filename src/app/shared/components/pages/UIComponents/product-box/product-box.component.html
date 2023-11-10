@@ -1,5 +1,18 @@
-<mat-card class="text-center">  
-    <div class="mb-1 mx-auto">
-        <img src="https://via.placeholder.com/150">
+<mat-card [ngClass]="{'text-center': !withMode}">  
+    <div class="mb-1 mx-auto p-3" [ngClass]="{'flex': withMode}">
+        <img [ngClass]="{'h-200px': !withMode, 'h-[360px]': withMode}" src="https://via.placeholder.com/150">
+        <div class="w-full" [ngClass]="{'px-8 flex flex-col justify-between': withMode}">
+            <div>
+                <h5>Camisa - Yu Yu Hakusho</h5>
+                <p class="truncate hover:whitespace-normal">Lorem consequuntur</p> <!--para textos muitos grandes adiciona .... -->
+                <p *ngIf="withMode">Description</p>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-red-400"> {{'100' | currency}}</span>
+                <button>
+                    <mat-icon class="text-gray-500">shopping_cart</mat-icon>
+                </button>
+            </div>
+        </div>
     </div>
 </mat-card>
