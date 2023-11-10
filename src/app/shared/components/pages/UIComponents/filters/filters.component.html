@@ -4,7 +4,7 @@
     </mat-expansion-panel-header>
     <mat-selection-list [multiple]="false">
         <mat-list-option *ngFor="let cat of categorias" [value]="cat">
-            <button>{{cat}}</button>
+            <button (click)="showCategory(cat)">{{cat}}</button>
         </mat-list-option>
     </mat-selection-list>
 </mat-expansion-panel>
