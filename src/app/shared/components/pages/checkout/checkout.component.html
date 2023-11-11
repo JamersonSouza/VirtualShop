@@ -7,9 +7,7 @@
             <img src="{{element.product}}" class="w-[100px] my-5">
         </td>
           <td mat-footer-cell *matFooterCellDef>
-            <button mat-raised-button routerLink="/home">Continue comprando
-                <mat-icon>add_shopping_cart</mat-icon>
-            </button>
+        
           </td> 
         </ng-container>
 
@@ -67,9 +65,12 @@
         <ng-container matColumnDef="productUUID">
           <th mat-header-cell *matHeaderCellDef> ID do Produto:  </th>
           <td mat-cell *matCellDef="let element">
-          <p>{{element.productUUID}}</p>
+          <p class="whitespace-normal">{{element.productUUID}}</p>
         </td>
           <td mat-footer-cell *matFooterCellDef>
+            <button mat-raised-button routerLink="/home">Continue comprando
+              <mat-icon>add_shopping_cart</mat-icon>
+          </button>
           </td> 
         </ng-container>
 

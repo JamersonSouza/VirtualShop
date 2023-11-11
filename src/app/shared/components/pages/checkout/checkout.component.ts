@@ -25,12 +25,13 @@ export class CheckoutComponent implements OnInit{
 
   dataSource: Array<CartItem> = [];
   displayedColumns: Array<string> = [
+    'productUUID',
     'product', 
     'name', 
     'price', 
     'qtd', 
     'total', 
-    'action', 'productUUID'
+    'action', 
   ]
 
   constructor(){
