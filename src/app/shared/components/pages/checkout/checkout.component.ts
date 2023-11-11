@@ -10,13 +10,13 @@ import {MatTableModule} from '@angular/material/table';
 export class CheckoutComponent implements OnInit{
 
   cart: cart = {items: [{
-    productUUID: uuidv4,
+    productUUID: uuidv4(),
     product: "https://via.placeholder.com/150",
     name: 'Camisa Yu Yu Hakusho',
     price: 99,
     qtd: 2,
   }, {
-    productUUID: uuidv4,
+    productUUID: uuidv4(),
     product: "https://via.placeholder.com/150",
     name: 'Camisa Green Day',
     price: 60,
@@ -30,7 +30,7 @@ export class CheckoutComponent implements OnInit{
     'price', 
     'qtd', 
     'total', 
-    'action'
+    'action', 'productUUID'
   ]
 
   constructor(){
