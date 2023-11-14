@@ -41,9 +41,9 @@ export class CheckoutComponent implements OnInit{
     this.dataSource = this.cart.items;
   }
 
-  // calculateTotal(items: Array<CartItem>): number {
-  //     return items.map((i) => i.price*i.qtd)
-  //     .reduce((lastValue, currentValue) => lastValue+currentValue,0)
-  // }
+   calculateTotal(items: Array<CartItem>): number {
+       return items.map((i) => i.price*i.qtd)
+       .reduce((lastValue, currentValue) => lastValue+currentValue,0)
+   }
 
 }
