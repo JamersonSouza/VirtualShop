@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckoutService } from 'src/app/services/checkout.service';
 import { CartItem, cart } from 'src/app/shared/models/cart';
 import {v4 as uuidv4, v4} from 'uuid';
 
@@ -33,7 +34,7 @@ export class CheckoutComponent implements OnInit{
     'action', 
   ]
 
-  constructor(){
+  constructor(private checkout : CheckoutService){
 
   }
   ngOnInit(): void {
@@ -41,8 +42,7 @@ export class CheckoutComponent implements OnInit{
   }
 
    calculateTotal(items: Array<CartItem>): number {
-       return items.map((i) => i.price*i.qtd)
-       .reduce((lastValue, currentValue) => lastValue+currentValue,0)
+       return this.checkout.calculateTotal(items);
    }
 
 }
