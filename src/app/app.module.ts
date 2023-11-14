@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from './shared/components/components.module';
 import { MaterialModulesModule } from './shared/material-modules/material-modules.module';
+import { CheckoutService } from './services/checkout.service';
 
 
 
@@ -19,7 +20,7 @@ import { MaterialModulesModule } from './shared/material-modules/material-module
     ComponentsModule,
     MaterialModulesModule
   ],
-  providers: [],
+  providers: [CheckoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
