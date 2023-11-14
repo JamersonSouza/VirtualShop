@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem, cart } from 'src/app/shared/models/cart';
 import {v4 as uuidv4, v4} from 'uuid';
-import {MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-checkout',
