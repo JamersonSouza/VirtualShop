@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckoutService } from 'src/app/services/checkout.service';
+import { Product } from 'src/app/shared/models/product';
 
 const ROW_HEIGHT: {[id:number]: number} = {1: 400, 3: 335, 4:350};
 
@@ -12,7 +14,7 @@ export class HomeComponent implements OnInit{
   category: string | undefined
   rowHeight = ROW_HEIGHT[this.cols];
 
-  constructor(){
+  constructor(private checkout : CheckoutService){
 
   }
 
@@ -29,4 +31,13 @@ export class HomeComponent implements OnInit{
     this.category = categorySelected;
   }
 
+  addItemToCart(product : Product):void{
+      this.checkout.addToCart({
+          name: product.title,
+          price: product.price,
+          qtd: 1,
+          productUUID: product.productUUID,
+          product: product.image
+      });
+  }
 }

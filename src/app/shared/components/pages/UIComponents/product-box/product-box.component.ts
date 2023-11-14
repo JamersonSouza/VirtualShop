@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Product } from 'src/app/shared/models/Product';
+import { Product } from 'src/app/shared/models/product';
 import {v4 as uuidv4, v4} from 'uuid';
 
 @Component({
