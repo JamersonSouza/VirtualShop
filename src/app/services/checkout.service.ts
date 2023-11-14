@@ -26,4 +26,14 @@ export class CheckoutService {
     console.log(this.checkout.value);
   }
 
+  calculateTotal(items: Array<CartItem>): number {
+    return items.map((i) => i.price*i.qtd)
+    .reduce((lastValue, currentValue) => lastValue+currentValue,0)
+  }
+
+  clear():void{
+    this.checkout.next({items: []})
+    this.snackBar.open('Itens removidos do carrinho:', 'Ok', {duration: 5000});
+  }
+
 }
