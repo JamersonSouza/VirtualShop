@@ -56,4 +56,11 @@ export class CheckoutComponent implements OnInit{
     this.checkoutService.removeItem(itemSelect);
    }
 
+   incrementQtd(itemSelect: CartItem): void{
+    this.checkoutService.addToCart(itemSelect);
+   }
+
+   decrementQtd(itemSelect: CartItem): void{
+    this.checkoutService.removeQtdCart(itemSelect);
+   }
 }

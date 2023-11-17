@@ -45,5 +45,18 @@ export class CheckoutService {
 
     this.checkout.next({ items: filterItemsCart});
     this.snackBar.open('Item removido com sucesso!', 'Ok', {duration: 5000});
-  } 
+  };
+  
+  removeQtdCart(itemSelect: CartItem) {
+    this.checkout.value.items.map((i) =>{
+      if(i.productUUID === itemSelect.productUUID){
+        i.qtd--;
+        if(i.qtd === 0){
+          this.removeItem(itemSelect);
+        }
+      }
+    })
+  }
+
+
 }
