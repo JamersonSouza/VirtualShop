@@ -13,6 +13,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -20,7 +21,7 @@ import { RouterModule } from '@angular/router';
   declarations: [],
   exports:[MatMenuModule, MatSidenavModule, MatGridListModule, MatCardModule, MatIconModule,
     MatExpansionModule, MatButtonModule, MatListModule, MatBadgeModule, MatTableModule, MatToolbarModule,
-    MatSnackBarModule, RouterModule],
+    MatSnackBarModule, RouterModule, HttpClientModule],
   imports: [
     CommonModule,
     MatMenuModule,
@@ -35,7 +36,8 @@ import { RouterModule } from '@angular/router';
     MatTableModule,
     MatToolbarModule,
     MatSnackBarModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ]
 })
 export class MaterialModulesModule { }

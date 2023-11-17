@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from './shared/components/components.module';
 import { MaterialModulesModule } from './shared/material-modules/material-modules.module';
 import { CheckoutService } from './services/checkout.service';
+import { FakestoreService } from './services/fakestore.service';
 
 
 
@@ -20,7 +21,7 @@ import { CheckoutService } from './services/checkout.service';
     ComponentsModule,
     MaterialModulesModule
   ],
-  providers: [CheckoutService],
+  providers: [CheckoutService, FakestoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
