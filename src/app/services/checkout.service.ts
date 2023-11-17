@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CheckoutService {
 
+
   checkout = new BehaviorSubject<cart>({items: []})
 
   constructor(private snackBar : MatSnackBar) { }
@@ -36,4 +37,13 @@ export class CheckoutService {
     this.snackBar.open('Itens removidos do carrinho:', 'Ok', {duration: 5000});
   }
 
+  
+  removeItem(itemSelect: CartItem): void {
+    const filterItemsCart = this.checkout.value.items.filter( (i) => {
+      i.productUUID !== itemSelect.productUUID
+    });
+
+    this.checkout.next({ items: filterItemsCart});
+    this.snackBar.open('Item removido com sucesso!', 'Ok', {duration: 5000});
+  } 
 }

@@ -34,15 +34,26 @@ export class CheckoutComponent implements OnInit{
     'action', 
   ]
 
-  constructor(private checkout : CheckoutService){
+  constructor(private checkoutService : CheckoutService){
 
   }
   ngOnInit(): void {
-    this.dataSource = this.cart.items;
+    this.checkoutService.checkout.subscribe((cart: cart) => {
+      this.cart = cart;
+      this.dataSource = this.cart.items;
+    })
   }
 
    calculateTotal(items: Array<CartItem>): number {
-       return this.checkout.calculateTotal(items);
+       return this.checkoutService.calculateTotal(items);
+   }
+
+   clearCart(): void{
+    this.checkoutService.clear();
+   }
+
+   removeItemCart(itemSelect: CartItem): void{
+    this.checkoutService.removeItem(itemSelect);
    }
 
 }
