@@ -26,13 +26,21 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log("AQ:", this.fakeAPI.
-    getAllProducts()
-    .subscribe( (prod) =>{
-      console.log('aq2: ', prod)
-      this.products=prod;
+    // console.log("AQ:", this.fakeAPI.
+    // getAllProducts()
+    // .subscribe( (prod) =>{
+    //   console.log('aq2: ', prod)
+    //   this.products=prod;
+    // })
+    // );
+    this.getAllProducts();
+  }
+
+  getAllProducts():void{
+    this.productsSubscriptions = this.fakeAPI.getAllProducts(this.count, this.sort)
+    .subscribe((p) => {
+      this.products = p;
     })
-    );
   }
 
   onColumsCountChange(colsNumber : number): void{
@@ -53,5 +61,15 @@ export class HomeComponent implements OnInit{
           productUUID: product.productUUID,
           product: product.image
       });
+  }
+
+  ItemsCountChange(newCount: number):void{
+      this.count = newCount.toString();
+      this.getAllProducts();
+  }
+
+  sortChange(newSort : string):void{
+    this.sort = newSort;
+    this.getAllProducts();
   }
 }

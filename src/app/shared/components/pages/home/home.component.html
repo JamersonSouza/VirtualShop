@@ -5,7 +5,10 @@
             </div>
     </mat-drawer>
     <mat-drawer-content class="p-6">
-            <app-product-header (columsCountChange)="onColumsCountChange($event)"></app-product-header>
+            <app-product-header
+            (itemsCountChange)="ItemsCountChange($event)"
+            (sortChange)="sortChange($event)"
+            (columsCountChange)="onColumsCountChange($event)"></app-product-header>
             <!-- {{category}} -->
             <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
                     <mat-grid-tile *ngFor="let product of products">
