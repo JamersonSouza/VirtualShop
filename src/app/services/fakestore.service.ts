@@ -16,4 +16,10 @@ export class FakestoreService {
         `${FAKE_STORE_API}/products?sort=${sort}&limit=${limit}`
       )
   }
+
+  getAllCategories(): Observable<Array<string>>{
+    return this.http.get<Array<string>>(
+      `${FAKE_STORE_API}/products/categories`
+    )
+  }
 }
