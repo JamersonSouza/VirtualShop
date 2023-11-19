@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit{
   }
 
   getAllProducts():void{
-    this.productsSubscriptions = this.fakeAPI.getAllProducts(this.count, this.sort)
+    this.productsSubscriptions = this.fakeAPI.getAllProducts(this.count, this.sort, this.category)
     .subscribe((p) => {
       this.products = p;
     })
@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit{
 
   getCategory(categorySelected: string): void{
     this.category = categorySelected;
+    this.getAllProducts();
   }
 
   addItemToCart(product : Product):void{
