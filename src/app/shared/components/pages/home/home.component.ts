@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckoutService } from 'src/app/services/checkout.service';
+import { FakestoreService } from 'src/app/services/fakestore.service';
 import { Product } from 'src/app/shared/models/product';
+import { Subscription } from 'rxjs';
 
 const ROW_HEIGHT: {[id:number]: number} = {1: 400, 3: 335, 4:350};
 
@@ -14,11 +16,23 @@ export class HomeComponent implements OnInit{
   category: string | undefined
   rowHeight = ROW_HEIGHT[this.cols];
 
-  constructor(private checkout : CheckoutService){
+  products: Array<Product> | undefined;
+  sort = 'desc';
+  count = '12';
+  productsSubscriptions : Subscription | undefined; 
+
+  constructor(private checkout : CheckoutService, private fakeAPI : FakestoreService){
 
   }
 
   ngOnInit(): void {
+    console.log("AQ:", this.fakeAPI.
+    getAllProducts()
+    .subscribe( (prod) =>{
+      console.log('aq2: ', prod)
+      this.products=prod;
+    })
+    );
   }
 
   onColumsCountChange(colsNumber : number): void{

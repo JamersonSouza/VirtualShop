@@ -10,14 +10,15 @@ export class ProductBoxComponent implements OnInit{
 
   @Input() withMode = false;
 
-  product : Product | undefined = {
-    productUUID: uuidv4(),
-    title: 'Tênis Olympikus',
-    price: 100,
-    category: 'Esportes',
-    description: 'desc qualquer',
-    image: 'https://via.placeholder.com/150'
-  };
+  @Input() product : Product | undefined;
+  // = {
+    // productUUID: uuidv4(),
+    // title: 'Tênis Olympikus',
+    // price: 100,
+    // category: 'Esportes',
+    // description: 'desc qualquer',
+    // image: 'https://via.placeholder.com/150'
+  //};
 
   @Output() addItemToCarEmiter = new EventEmitter();
 

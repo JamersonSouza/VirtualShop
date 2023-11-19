@@ -1,14 +1,15 @@
-<mat-card [ngClass]="{'text-center': !withMode}">  
+<mat-card *ngIf="product" [ngClass]="{'text-center': !withMode}">  
     <div class="mb-1 mx-auto p-3" [ngClass]="{'flex': withMode}">
-        <img [ngClass]="{'h-200px': !withMode, 'h-[360px]': withMode}" src="https://via.placeholder.com/150">
+        <img class="mb-1 mx-auto h-[200px]" [ngClass]="{'h-200px': !withMode, 'h-[360px]': withMode}" 
+        [src]="product.image">
         <div class="w-full" [ngClass]="{'px-8 flex flex-col justify-between': withMode}">
             <div>
-                <h5>Camisa - Yu Yu Hakusho</h5>
-                <p class="truncate block">Lorem consequuntur</p> <!--para textos muitos grandes adiciona .... -->
-                <p *ngIf="withMode">Description</p>
+                <h5>{{product.category}}</h5>
+                <p class="truncate block">{{product.title}}</p> <!--para textos muitos grandes adiciona .... -->
+                <p *ngIf="withMode">{{product.description}}</p>
             </div>
             <div class="flex justify-between">
-                <span class="text-red-400"> {{'100' | currency}}</span>
+                <span class="text-red-400"> {{product.price | currency}}</span>
                 <button (click)="addItemToCart()">
                     <mat-icon class="text-gray-500">shopping_cart</mat-icon>
                 </button>
